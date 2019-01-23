@@ -35,7 +35,7 @@
 
 				<section>
 
-					<h2>Ethereum Release Cycle</h2>
+					<h2>Ethereum Releases</h2>
 
 					<h3>Presentation by James Pitts</h3>
 
@@ -62,7 +62,16 @@
 
 					<h2>There is one protocol, many clients</h2>
 
-					<h2 class="fragment">...and hopefully one main network</h2>
+					<h2>...stakeholders like miners, developers, users</h2>
+
+					<h2>...and only <strong>one</strong> main network</h2>
+
+				</section>
+
+
+				<section>
+
+					<h2>How do the stakeholders in this decentralized network coordinate an upgrade?</h2>
 
 				</section>
 
@@ -75,8 +84,8 @@
 						<li>Software and network complexity</li>
 						<li>Coordinating client updates</li>
 						<li>Implicit social contract</li>
-						<li>Cannot roll back without modifying state</li>
-						<li>Reputation</li>
+						<li>Opposition to rolling back or altering state</li>
+						<li>Reputation must be upheld</li>
 
 					</ul>
 
@@ -85,7 +94,7 @@
 
 				<section>
 
-					<h2>Solution: Cautiousness</h2>
+					<h2>Principle: Cautiousness</h2>
 
 					<ul>
 						<li>Extensive in-house testing</li>
@@ -99,7 +108,7 @@
 
 				<section>
 
-					<h2>Solution: Coordination</h2>
+					<h2>Principle: Coordination</h2>
 
 					<ul>
 						<li>All Core Devs calls</li>
@@ -112,7 +121,7 @@
 
 				<section>
 
-					<h2>Solution: Cadence</h2>
+					<h2>Principle: Cadence</h2>
 
 					<ul>
 						<li>Major releases are rare</li>
@@ -128,12 +137,18 @@
 					<h2>What is an EIP?</h2>
 					<h3>A proposal which may become a standard for the platform</h3>
 
+					<hr/>
+
+					"Core EIPs" apply to the protocol
+
 				</section>
 
 
 				<section>
 
 				<h2>Example of the EIPs in a release</h2>
+				<h3>v7 implementations featured 9 Core EIPs</h3>
+
 
 <p>
 
@@ -195,37 +210,12 @@
 
 
 				<!---
-					Types of EIPs Expanded
-				//--->
-
-				<section>
-
-					<h2>Types of EIPs</h2>
-
-					<p>
-						<ul>
-							<li><strong>Standard Track EIPs</strong></li>
-								<ul>
-									<li><strong>Core</strong> - improvements requiring a consensus fork</li>
-									<li><strong>Networking</strong> - devp2p, LES</li>
-									<li><strong>Interface</strong> - client API/RPC specifications</li>
-									<li><strong>ERC</strong> - app-level standards and conventions</li>
-								</ul>
-							<li><strong>Informational EIPs</strong> - general guidelines or information</li>
-							<li><strong>Meta EIPs</strong> - includes decision-making surrounding Ethereum</li>
-						</ul>
-					</p>
-
-				</section>
-
-
-				<!---
 					EIPs in GitHub
 				//-->
 
 				<section>
 
-					<h2>All EIPs are in a git repo!</h2>
+					<h2>All EIPs are in a git repo</h2>
 
 					<blockquote>
 						"Because the EIPs are maintained as text files in a versioned repository, their revision history is the historical record of the feature proposal."
@@ -463,16 +453,16 @@
 				<section>
 
 					<h2>What can fork the protocol?</h2>
-					<h3>Changes to the following components</h3>
+					<h3>Changes to the core components</h3>
 
 					<ul>
-						<li>ethash - Proof of Work</li>
-						<li>txn, block format</li>
-						<li>fee schedule</li>
-						<li>RLP - encoding method to serialize objects</li>
-						<li>trie format - "modified Merkle Patricia tree"</li>
-						<li>signing transactions</li>
-						<li>EVM</li>
+						<li>Ethash: Proof of Work</li>
+						<li>Txn, block format</li>
+						<li>Fee schedule</li>
+						<li>RLP: object serialization</li>
+						<li>Trie: modified Merkle Patricia tree</li>
+						<li>Method of signing transactions</li>
+						<li>EVM: virtual machine</li>
 						<li>Wire Protocol</li>
 					</ul>
 
@@ -484,18 +474,22 @@
 					<h2>Release Case: DDoS Response</h2>
 					<h3>Fall 2016</h3>
 
+					<ul>
+						<li>Miners mainly on geth, cpp</li>
+						<li>Network was becoming more diverse, some parity adoption</li>
+					</ul>
+
 				</section>
 
 
 				<section>
 
-					<h2>Driving the release: DDos Attacks</h2>
+					<h2>DDoS Attacks</h2>
 
 					<ul>
-						<li>several EVM operations underpriced by 100x</li>
-						<li>attacker flooded network with txns targeting these ops</li>
-						<li>network was mainly geth</li>
-						<li>network was becoming more diverse, early parity adoption by miners</li>
+						<li>Several EVM operations were underpriced by 100x</li>
+						<li>Attacker flooded w/ txns targeting opcodes</li>
+						<li>Non-parity nodes unable to create blocks</li>
 					</ul>
 
 				</section>
@@ -506,10 +500,10 @@
 					<h2>Parity "Kept the Lights On"</h2>
 
 					<ul>
-						<li>runs on rust lang</li>
-						<li>parity was profiled and optimized</li>
-						<li>software more able to absorb the attack</li>
-						<li>miners, key operators quickly migrated</li>
+						<li>Developed in rust lang</li>
+						<li>Profiled and optimized</li>
+						<li>Was more able to absorb the attack</li>
+						<li>Miners, key operators migrated over</li>
 					</ul>
 
 				</section>
@@ -519,25 +513,35 @@
 
 					<h2>DDoS Response Releases</h2>
 
-					<pre>
-v5 - Tangerine Whistle
+					<p style="text-align:left;">
+<strong>v5 - Tangerine Whistle</strong>
+<br/>
 EIP-608: Hardfork Meta
+<br/>
 EIP-150: Gas cost changes for IO-heavy operations
+					</p>
 
-v6 - Spurious Dragon
+					<p style="text-align:left;">
+<strong>v6 - Spurious Dragon</strong>
+<br/>
 EIP-607: Hardfork Meta
+<br/>
 EIP-155: Simple replay attack protection
+<br/>
 EIP-160: EXP cost increase
+<br/>
 EIP-161: State trie clearing (invariant-preserving alternative)
+<br/>
 EIP-170: Contract code size limit
-					</pre>
+					</p>
 
 				</section>
 
 
 				<section>
 
-					<h2>Peek into v5 / EIP-150</h2>
+					<h2>Peek into v5's EIP-150</h2>
+					<h3>Simple replay attack protection</h3>
 
 					<pre>
 Specification
@@ -549,7 +553,8 @@ Increase the gas cost of BALANCE to 400 (from 20).
 Increase the gas cost of SLOAD to 200 (from 50).
 Increase the gas cost of CALL, DELEGATECALL, CALLCODE to 700 (from 40).
 Increase the gas cost of SELFDESTRUCT to 5000 (from 0).
-If SELFDESTRUCT hits a newly created account, it triggers an additional gas cost of 25000 (similar to CALLs).
+If SELFDESTRUCT hits a newly created account, 
+  it triggers an additional gas cost of 25000 (similar to CALLs).
 					</pre>
 
 					<p>
@@ -562,17 +567,59 @@ If SELFDESTRUCT hits a newly created account, it triggers an additional gas cost
 
 				<section>
 
-					<h2>The Release Event</h2>
+					<h2>v5 and v6 Release Events</h2>
 
 					<ul>
-						<li>Lots of attention in social media</li>
-						<li>Communication through EF and Parity blogs</li>
-						<li>Communication on social media</li>
+						<li>EF and Parity blog posts</li>
+						<li>Clarifications on social media</li>
 						<li>Direct contact with miners, key operators</li>
-						<li>Clients triggered v5 at block no. 2,675,000</li>
+						<li>Watching the "fork monitor" web app</li>
+						<li>Clients activate release at block no.</li>
 					</ul>
 
 				</section>
+
+
+
+				<section>
+
+					<h2>Principles Recap</h2>
+
+					<p>
+						<hr/>
+						<strong>Cautiousness</strong>
+						<br/>
+
+						<ul>
+							<li>Extensive testing, deploy to testnets</li>
+							<li>Client diversity</li>
+						</ul>
+					</p>
+
+					<p>
+						<hr/>
+						<strong>Coordination</strong>
+						<br/>
+
+						<ul>
+							<li>All Core Devs, Cat Herders</li>
+							<li>Discussions and communications</li>
+						</ul>
+					</p>
+
+					<p>
+						<hr/>
+						<strong>Cadence</strong>
+						<br/>
+
+						<ul>
+							<li>Each feature specified in an EIP</li>
+							<li>Each release contains a set of EIPs</li>
+						</ul>
+					</p>
+
+				</section>
+
 
 
 				<!---///
